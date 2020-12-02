@@ -1,3 +1,6 @@
+//TO BE COMPILED WITH JAVA 10 or lower
+//Used javac --release 8 filename.java to test
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
