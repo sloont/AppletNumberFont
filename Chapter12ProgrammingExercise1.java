@@ -2,82 +2,85 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Chapter12ProgrammingExercise1 extends JApplet
+public class Chapter12ProgrammingExercise1 extends JApplet implements KeyListener
 {
    private int num = 1;
+   private int c;
    
+   @Override
    public void init()
    {  
+      
+      this.addKeyListener(this);
       this.setFocusable(true);
-      this.addKeyListener(new KeyAdapter()
-      {
-         public void keyTyped(KeyEvent e)
-         {
+      this.requestFocusInWindow();
 
-            int c = e.getKeyCode();
-            switch (c)
-            {
-            
-            case KeyEvent.VK_1:
-            //1
-               num = 1;
-               break;
-      
-            case KeyEvent.VK_2:
-            //2
-               num = 2;
-               break;
-      
-            case KeyEvent.VK_3:
-            //3
-               num = 3;
-               break;
-               
-            case KeyEvent.VK_4:
-            //4               
-               num = 4;
-               break;
-      
-            case KeyEvent.VK_5:
-            //5
-               num = 5;
-               break;
-               
-            case KeyEvent.VK_6:
-            //6
-               num = 6;
-               break;
-               
-            case KeyEvent.VK_7:
-            //7
-               num = 7;
-               break;
-      
-            case KeyEvent.VK_8:
-            //8
-               num = 8;
-               break;
-      
-            case KeyEvent.VK_9:          
-            //9
-               num = 9;
-               break;
-               
-            case KeyEvent.VK_0:
-             //0
-               num = 0;
-               break;  
-            
-            default:
-               num = 0;
-               
-            }//end switch
-            repaint();
-            
-         }
-      });
    }
-   
+
+   public void drawNum() {
+            
+      
+      switch (c)
+      {
+      
+      case 49:
+      //1
+         num = 1;
+         break;
+
+      case 50:
+      //2
+         num = 2;
+         break;
+
+      case 51:
+      //3
+         num = 3;
+         break;
+         
+      case 52:
+      //4               
+         num = 4;
+         break;
+
+      case 53:
+      //5
+         num = 5;
+         break;
+         
+      case 54:
+      //6
+         num = 6;
+         break;
+         
+      case 55:
+      //7
+         num = 7;
+         break;
+
+      case 56:
+      //8
+         num = 8;
+         break;
+
+      case 57:          
+      //9
+         num = 9;
+         break;
+         
+      case 48:
+         //0
+         num = 0;
+         break;  
+      
+      default:
+         num = -1;
+         
+      }//end switch
+      
+   }
+
+   @Override
    public void paint(Graphics g)
    {  
       super.paint(g);
@@ -142,6 +145,7 @@ public class Chapter12ProgrammingExercise1 extends JApplet
          g.fillRect(60, 20, 10, 10);
          g.fillRect(40, 40, 20, 10);
          g.fillRect(40, 70, 20, 10);
+         g.fillRect(60, 50, 10, 20);
          break;
          
       case 7:
@@ -170,6 +174,7 @@ public class Chapter12ProgrammingExercise1 extends JApplet
          g.fillRect(30, 20, 10, 20);
          g.fillRect(40, 40, 20, 10);
          g.fillRect(40, 70, 20, 10);
+         g.fillRect(30, 60, 10, 10);
          break;
          
       case 0:
@@ -180,7 +185,23 @@ public class Chapter12ProgrammingExercise1 extends JApplet
          g.fillRect(30, 20, 10, 50);
          g.fillRect(50, 30, 10, 10);
          g.fillRect(40, 40, 10, 10);
-         
+         break;
+
+      default:
+         g.fillRect(30, 50, 10, 10);
+         g.fillRect(50, 50, 10, 10);
+         g.fillRect(70, 50, 10, 10);
       }//end switch  
+   }
+
+   @Override
+   public void keyTyped(KeyEvent e) {}
+   @Override
+   public void keyReleased(KeyEvent e) {}
+   @Override
+   public void keyPressed(KeyEvent e) {
+      c = e.getKeyCode();
+      this.drawNum();
+      repaint();
    }
 }
