@@ -10,10 +10,11 @@ public class Chapter12ProgrammingExercise1 extends JApplet implements KeyListene
    private int num = 1;
    private int c;
    
+   
    @Override
    public void init()
    {  
-      
+            
       this.addKeyListener(this);
       this.setFocusable(true);
       this.requestFocusInWindow();
