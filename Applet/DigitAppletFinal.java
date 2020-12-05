@@ -21,15 +21,17 @@ public class DigitAppletFinal extends JApplet
    //Declare integer to save the value of the KeyEvent
    private int c;
 
+   public static final Font FONT = new JLabel().getFont();
+
    //Declare and initialize constants for instances of color String objects
-   private static String RED = "Red";
-   private static String GREEN = "Green";
-   private static String BLUE = "Blue";
-   private static String MAGENTA = "Magenta";
-   private static String CYAN = "Cyan";
-   private static String YELLOW = "Yellow";
-   private static String BLACK = "Black";
-   private static String PINK = "Pink";
+   private static final String RED = "Red";
+   private static final String GREEN = "Green";
+   private static final String BLUE = "Blue";
+   private static final String MAGENTA = "Magenta";
+   private static final String CYAN = "Cyan";
+   private static final String YELLOW = "Yellow";
+   private static final String BLACK = "Black";
+   private static final String PINK = "Pink";
 
    //Declare container outside of init() so it can be accessed by other methods
    private Container pane;
@@ -59,10 +61,11 @@ public class DigitAppletFinal extends JApplet
    private String[] colors = {RED, GREEN, BLUE, 
                       MAGENTA, CYAN, YELLOW, 
                       BLACK, PINK};
-   
-                      //Declare JLabels for applet clarity
+
+   //Declare JLabels for applet clarity
    private JLabel digitJL, colorJL, backgroundJL;
    
+   private JLabel help;
    
    @Override
    public void init()
@@ -177,6 +180,13 @@ public class DigitAppletFinal extends JApplet
 
       //Must allow focusing
       this.setFocusable(true);
+
+      help = new JLabel("To change the digit after making color choices, press Tab twice!", SwingConstants.CENTER);
+      help.setSize(380,20);
+      help.setLocation(10,250);
+      help.setOpaque(true);
+      help.setFont(new Font(FONT.toString(), Font.PLAIN, 10));
+      pane.add(help);
       
 
    }
@@ -197,12 +207,14 @@ public class DigitAppletFinal extends JApplet
       {
       
       case 49:
+      case 97:
       //1
          lcd5 = true;
          lcd7 = true;
          break;
 
       case 50:
+      case 98:
       //2
          lcd1 = true;
          lcd2 = true;
@@ -212,6 +224,7 @@ public class DigitAppletFinal extends JApplet
          break;
 
       case 51:
+      case 99:
       //3
          lcd1 = true;
          lcd2 = true;
@@ -221,6 +234,7 @@ public class DigitAppletFinal extends JApplet
          break;
          
       case 52:
+      case 100:
       //4               
          lcd2 = true;
          lcd4 = true;
@@ -229,6 +243,7 @@ public class DigitAppletFinal extends JApplet
          break;
 
       case 53:
+      case 101:
       //5
          lcd1 = true;
          lcd2 = true;
@@ -238,6 +253,7 @@ public class DigitAppletFinal extends JApplet
          break;
          
       case 54:
+      case 102:
       //6
          lcd1 = true;
          lcd2 = true;
@@ -248,6 +264,7 @@ public class DigitAppletFinal extends JApplet
          break;
          
       case 55:
+      case 103:
       //7
          lcd1 = true;
          lcd5 = true;
@@ -255,6 +272,7 @@ public class DigitAppletFinal extends JApplet
          break;
 
       case 56:
+      case 104:
       //8
          lcd1 = true;
          lcd2 = true;
@@ -265,7 +283,8 @@ public class DigitAppletFinal extends JApplet
          lcd7 = true;
          break;
 
-      case 57:          
+      case 57:  
+      case 105:        
       //9
          lcd1 = true;
          lcd2 = true;
@@ -275,6 +294,7 @@ public class DigitAppletFinal extends JApplet
          break;
          
       case 48:
+      case 96:
          //0
          lcd1 = true;
          lcd3 = true;
