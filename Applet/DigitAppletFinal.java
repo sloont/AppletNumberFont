@@ -9,6 +9,8 @@ import javax.swing.event.*;
 public class DigitAppletFinal extends JApplet 
                implements KeyListener, ItemListener, ListSelectionListener
 {  
+
+
    //Declare booleans for display interface//We must override this method because we are implementing its interface.
    private boolean lcd1;
    private boolean lcd2;
@@ -71,6 +73,9 @@ public class DigitAppletFinal extends JApplet
    public void init()
    {  
       
+      Frame title = (Frame)this.getParent().getParent();
+      title.setTitle("Type a number!");
+
       pane = this.getContentPane();
       pane.setLayout(null);          
       
