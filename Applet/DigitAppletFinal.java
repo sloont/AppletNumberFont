@@ -34,7 +34,7 @@ public class DigitAppletFinal extends JApplet
    //Declare container outside of init() so it can be accessed by other methods
    private Container pane;
    
-   //Setup varieables for digit and background color
+   //Setup variables for digit and background color
    private Color currentColor = Color.black;
    private Color bgColor = Color.white;
 
